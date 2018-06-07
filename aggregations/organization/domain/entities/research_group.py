@@ -4,7 +4,7 @@ import uuid
 
 from abstract.enities import Entity
 from abstract.factory import Factory
-from polls.domain.survey import SurveyFactory
+from aggregations.polls.domain.survey import SurveyFactory
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +21,6 @@ class ResearchGroupFactory(Factory):
     @staticmethod
     def build(name):
         logger.debug("Building new research group unit")
-        unit = ResearchGroup(uuid.uuid4(), name)
+        unit = ResearchGroup(uuid.uuid4(), name, None)
         logger.debug(f"Finished building new research group id: {unit.id}")
         return unit
