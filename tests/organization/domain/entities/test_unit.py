@@ -1,4 +1,4 @@
-from survey.domain.entities.unit import Unit
+from organization.domain.entities.unit import Unit
 
 
 def test_create_new_research_group():

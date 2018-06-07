@@ -4,7 +4,7 @@ import uuid
 
 from abstract.enities import Entity
 from abstract.factory import Factory
-from survey.domain.entities.new_research_group import ResearchGroupFactory
+from organization.domain.entities.research_group import ResearchGroupFactory
 
 logger = logging.getLogger(__name__)
 

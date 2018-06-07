@@ -1,8 +1,8 @@
-from survey import create_new_unit
+from organization import create_new_unit
 
 
 def test_create_new_unit(mocker):
-    m_unit_factory = mocker.patch("survey.UnitFactory")
+    m_unit_factory = mocker.patch("organization.UnitFactory")
     m_unit = mocker.Mock()
     m_unit_factory.build.return_value = m_unit
 

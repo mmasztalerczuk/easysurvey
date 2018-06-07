@@ -1,4 +1,4 @@
-from survey.domain.entities.unit import UnitFactory
+from organization.domain.entities.unit import UnitFactory
 
 
 def create_new_unit(name):

@@ -1,5 +1,5 @@
 from abstract.factory import Factory
-from survey import UnitFactory
+from organization import UnitFactory
 
 
 def test_is_unit_factory_a_factory():
