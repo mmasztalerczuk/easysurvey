@@ -1,58 +1,47 @@
-from flask import Blueprint
-from flask.views import MethodView
+from flask import Blueprint, request
 
 view = Blueprint('view', __name__)
 
 
-@view.route("/", methods=['POST'])
+@view.route("/unit", methods=['POST'])
 def unit():
     """
-    Create a new user
+    Create a new Unit
     ---
+    security:
+      - Bearer: []
     tags:
-      - users
-    definitions:
-      - schema:
-          id: Group
-          properties:
-            name:
-             type: string
-             description: the group's name
+      - unit
     parameters:
       - in: body
         name: body
         schema:
-          id: User
+          id: Unit
           required:
-            - email
             - name
           properties:
-            email:
-              type: string
-              description: email for user
             name:
               type: string
-              description: name for user
-            address:
-              description: address for user
-              schema:
-                id: Address
-                properties:
-                  street:
-                    type: string
-                  state:
-                    type: string
-                  country:
-                    type: string
-                  postalcode:
-                    type: string
-            groups:
-              type: array
-              description: list of groups
-              items:
-                $ref: "#/definitions/Group"
+              description: name for unit
     responses:
       201:
-        description: User created
+        description: Unit created
     """
     return
+
+
+@view.route("/unit", methods=['GET'])
+def get_unit():
+    """
+    Get all unit
+    ---
+    security:
+      - Bearer: []
+    tags:
+      - unit
+    responses:
+      200:
+        description: Unit created
+    """
+    print(request.headers)
+    return ""

@@ -33,4 +33,16 @@ CORS(app)
 
 @app.route("/spec")
 def spec():
-    return jsonify(swagger(app))
+    swag = swagger(app)
+
+
+    swag['securityDefinitions'] = {
+        "Bearer": {
+            "in": "header",
+            "type": "apiKey",
+            "name": "Authorization"
+            }
+        }
+
+
+    return jsonify(swag)
