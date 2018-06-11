@@ -6,7 +6,6 @@ from abstract.enities import Entity
 from abstract.factory import Factory
 from abstract.repository import Repository
 from aggregations.organization.domain.entities.research_group import ResearchGroupFactory
-from infrastructure.ctx import get_ctx_storage
 
 logger = logging.getLogger(__name__)
 
@@ -29,9 +28,8 @@ class UnitFactory(Factory):
     @staticmethod
     def build(name):
         logger.debug("Building new unit")
-        unit = Unit(uuid.uuid4(), name)
 
-        unit.repository = UnitRepository(get_ctx_storage())
+        unit = Unit(uuid.uuid4(), name)
 
         logger.debug("Finished building new unit id: {unit.id}")
         return unit
