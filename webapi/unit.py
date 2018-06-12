@@ -26,7 +26,7 @@ def unit():
       500:
         description: Internal Error
     """
-    return
+    return ""
 
 
 @view.route("/unit", methods=['GET'])

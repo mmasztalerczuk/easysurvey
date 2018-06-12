@@ -1,0 +1,71 @@
+from flask import Blueprint, request
+
+view = Blueprint('view6', __name__)
+
+
+@view.route("/question", methods=['POST'])
+def question():
+    """
+    Create a new question
+    ---
+    security:
+      - Bearer: []
+    tags:
+      - questions
+    parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/ResearchGroup'
+        examples:
+          one:
+            name: "Research Group One"
+    responses:
+      201:
+        description: Reserach Group created
+      500:
+        description: Internal Error
+    """
+    return ""
+
+
+@view.route("/question", methods=['GET'])
+def get_questions():
+    """
+    Get all questions for given survey
+    ---
+    definitions:
+      - schema:
+          id: ResearchGroup
+          properties:
+            id:
+              type: integer
+              description: uniq id of research group
+              readOnly: true
+            name:
+              type: string
+              description: name of the research group
+              example: My new research group
+            unit_id:
+              type: string
+              description: id of unit where research group will be added
+              example: 0
+    security:
+      - Bearer: []
+    tags:
+      - questions
+    responses:
+      200:
+        description: Get all research groups of user
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/ResearchGroup'
+          example:
+            - id: 0
+              name: Research Group One
+            - id: 1
+              name: Research Group Two
+    """
+
+    return ""
