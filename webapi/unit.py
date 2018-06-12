@@ -16,16 +16,15 @@ def unit():
       - in: body
         name: body
         schema:
-          id: Unit
-          required:
-            - name
-          properties:
-            name:
-              type: string
-              description: name for unit
+          $ref: '#/definitions/Unit'
+        examples:
+          one:
+            name: "Unit One"
     responses:
       201:
         description: Unit created
+      500:
+        description: Internal Error
     """
     return
 
@@ -35,13 +34,34 @@ def get_unit():
     """
     Get all unit
     ---
+    definitions:
+      - schema:
+          id: Unit
+          properties:
+            id:
+              type: integer
+              description: id of unit
+              readOnly: true
+            name:
+              type: string
+              description: name of the unit
+              example: My new unit
     security:
       - Bearer: []
     tags:
       - unit
     responses:
       200:
-        description: Unit created
+        description: Get all units of user
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/Unit'
+          example:
+            - id: 0
+              name: Unit One
+            - id: 1
+              name: Unit Two
     """
-    print(request.headers)
+
     return ""
