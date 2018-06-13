@@ -31,3 +31,8 @@ class Entity(ABC):
     @property
     def id(self):
         return self._id
+
+    def _apply(self, event):
+        return self._when(event)
+
+

@@ -30,7 +30,7 @@ def create_app():
     app.register_blueprint(view6)
     app.register_blueprint(view7)
     app.register_blueprint(view8)
-    app.register_blueprint(view9)
+    app.register_blueprint(view9    )
 
     return app
 
