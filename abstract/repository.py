@@ -1,12 +1,12 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod, ABCMeta
 
 
-class Repository():
+class Repository(metaclass=ABCMeta):
     """Abstract class for repositories"""
 
-    def __init__(self, storage):
-        self.storage = storage()
+    def __init__(self, _persistent_storage):
+        self._persistent_storage = _persistent_storage
 
-    def get_all(self):
-        return self.storage.get()
-
+    @abstractmethod
+    def put(self, research_group):
+        raise NotImplementedError

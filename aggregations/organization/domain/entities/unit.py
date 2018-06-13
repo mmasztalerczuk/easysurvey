@@ -1,7 +1,6 @@
 import logging
-
 import uuid
-
+from abc import ABCMeta, abstractmethod
 from functools import singledispatch
 
 from abstract.domain_event import DomainEvent
@@ -22,7 +21,6 @@ class Unit(Entity):
 
     class CreatedResearchGroup(DomainEvent):
         pass
-
 
     def create_new_research_group(self, name, code=None, description=None):
         """
@@ -55,11 +53,7 @@ class Unit(Entity):
 
     @singledispatch
     def _when(self, event):
-        raise NotImplementedError()
-
-    @_when.register(CreatedResearchGroup)
-    def _(self, event):
-        research_group = ResearchGroupFactory(event.name, event.code, event.)
+        pass
 
 
 class UnitFactory(Factory):
@@ -73,10 +67,3 @@ class UnitFactory(Factory):
 
         logger.debug("Finished building new unit id: {unit.id}")
         return unit
-
-
-class UnitRepository(Repository):
-
-    def save_research_group(self, research_group):
-        self.storage.put(research_group)
-

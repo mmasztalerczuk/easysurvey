@@ -1,8 +1,6 @@
 import datetime
 import struct
 
-from utility.time import monotonic_utc_now
-
 def utc_now():
     """A UTC timestamp in seconds.
 
@@ -64,5 +62,5 @@ def monotonic_utc_now():
 
 class DomainEvent:
     def __init__(self, timestamp=None, **kwargs):
-        self.__dict__['timestamp'] = monotonic_utc_now() if timestamp is _now else timestamp
+        self.__dict__['timestamp'] = monotonic_utc_now() if timestamp is None else timestamp
         self.__dict__.update(kwargs)
